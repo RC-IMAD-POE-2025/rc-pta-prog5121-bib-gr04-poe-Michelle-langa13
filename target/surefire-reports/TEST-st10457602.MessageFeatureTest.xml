@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="st10457602.LoginFeatureTest" time="0.094" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="st10457602.MessageFeatureTest" time="0.24" tests="15" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -59,9 +59,19 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testNullOrEmptyCredentials" classname="st10457602.LoginFeatureTest" time="0.04"/>
-  <testcase name="testMultipleLoginAttempts" classname="st10457602.LoginFeatureTest" time="0.014"/>
-  <testcase name="testSuccessfulLogin" classname="st10457602.LoginFeatureTest" time="0.001"/>
-  <testcase name="testCaseSensitiveCredentials" classname="st10457602.LoginFeatureTest" time="0.005"/>
-  <testcase name="testInvalidCredentials" classname="st10457602.LoginFeatureTest" time="0.002"/>
+  <testcase name="testValidatePayloadLength_TooLongPayload_ReturnsFailureMessageWithExcessCount" classname="st10457602.MessageFeatureTest" time="0.032"/>
+  <testcase name="testValidateRecipientNumber_InvalidFormat_ReturnsFailureMessage" classname="st10457602.MessageFeatureTest" time="0.003"/>
+  <testcase name="testSentMessage_EmptyPayload_ReturnsFailure" classname="st10457602.MessageFeatureTest" time="0.002"/>
+  <testcase name="testCreateMessageHash_WithSpecifiedData_ReturnsCorrectHash" classname="st10457602.MessageFeatureTest" time="0.022"/>
+  <testcase name="testReturnTotalMessages_NoMessagesSent_ReturnsZero" classname="st10457602.MessageFeatureTest" time="0.001"/>
+  <testcase name="testMessageConstructor_InitializesPropertiesCorrectly" classname="st10457602.MessageFeatureTest" time="0.003"/>
+  <testcase name="testSentMessage_InvalidRecipient_ReturnsFailure" classname="st10457602.MessageFeatureTest" time="0.001"/>
+  <testcase name="testValidatePayloadLength_EmptyPayload_ReturnsSuccessMessage" classname="st10457602.MessageFeatureTest" time="0.001"/>
+  <testcase name="testStoreMessage_Draft_CreatesFileWithIndex0(Path)" classname="st10457602.MessageFeatureTest" time="0.132"/>
+  <testcase name="testValidatePayloadLength_ValidPayload_ReturnsSuccessMessage" classname="st10457602.MessageFeatureTest" time="0.001"/>
+  <testcase name="testValidatePayloadLength_NullPayload_ReturnsFailureMessage" classname="st10457602.MessageFeatureTest" time="0.002"/>
+  <testcase name="testGetGeneratedIdNotification_ReturnsCorrectFormat" classname="st10457602.MessageFeatureTest" time="0.002"/>
+  <testcase name="testSentMessage_PayloadTooLong_ReturnsFailure" classname="st10457602.MessageFeatureTest" time="0.001"/>
+  <testcase name="testStoreMessage_SentMessage_CreatesFileWithCorrectIndexAndHash(Path)" classname="st10457602.MessageFeatureTest" time="0.009"/>
+  <testcase name="testValidateRecipientNumber_ValidFormat_ReturnsSuccessMessage" classname="st10457602.MessageFeatureTest" time="0.003"/>
 </testsuite>

@@ -145,7 +145,8 @@ public class LoginScreen extends javax.swing.JFrame {
         if (accessGranted)
         {
             JOptionPane.showMessageDialog(this, loginFeedback, "Access Granted", JOptionPane.INFORMATION_MESSAGE);
-           JOptionPane.showMessageDialog(this, "Message feature is coming soon...", "Part 2", JOptionPane.INFORMATION_MESSAGE);
+            MessageScreen messageScreen = new MessageScreen();
+            messageScreen.startMessagingInteraction();
             dispose();
         }
         else
