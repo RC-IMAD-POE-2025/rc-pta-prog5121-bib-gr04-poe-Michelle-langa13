@@ -6,7 +6,7 @@ package st10457602;
  */
 public class LoginFeature {
     // Reference to the registration details for login validation
-    private final RegistrationFeature registrationFeature;
+    final RegistrationFeature registrationFeature;
 
     // Tracks whether the user is currently logged in
     private boolean isLoggedIn;

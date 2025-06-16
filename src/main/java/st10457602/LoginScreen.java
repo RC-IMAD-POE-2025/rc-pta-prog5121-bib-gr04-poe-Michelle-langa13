@@ -135,22 +135,34 @@ public class LoginScreen extends javax.swing.JFrame {
         username = usernameField.getText();
         password =  new String(passwordField.getPassword());
   
-
-        boolean accessGranted =
-        loginFeature.loginUser(username, password);
+        // Attempt to log in the user
+        boolean accessGranted = loginFeature.loginUser(username, password);
         
-        String loginFeedback = 
-                loginFeature.returnLoginStatus();
+        // Get the login feedback message
+        String loginFeedback = loginFeature.returnLoginStatus();
 
         if (accessGranted)
         {
+            // Show success message
             JOptionPane.showMessageDialog(this, loginFeedback, "Access Granted", JOptionPane.INFORMATION_MESSAGE);
-            MessageScreen messageScreen = new MessageScreen();
-            messageScreen.startMessagingInteraction();
-            dispose();
+            
+            // Set the logged-in username in MessageFeature for sender identification
+            // The RegistrationFeature object holds the first and last name for display
+            MessageFeature.setLoggedInUsername(loginFeature.registrationFeature.getFirstName() + " " + loginFeature.registrationFeature.getLastName());
+            
+            // Load existing messages from JSON files when entering the message screen
+            MessageFeature.loadAllMessagesFromJsonFiles();
+
+            // Create and show the new MessageScreen JFrame, passing necessary features
+            MessageScreen messageScreen = new MessageScreen(loginFeature.registrationFeature, loginFeature);
+            messageScreen.setVisible(true); // Make the new message screen visible
+            messageScreen.setLocationRelativeTo(null); // Center the message screen
+
+            dispose(); // Close the current login screen
         }
         else
         {
+            // Show failure message
             JOptionPane.showMessageDialog(this, loginFeedback, "Access Denied", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
